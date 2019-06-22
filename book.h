@@ -11,9 +11,9 @@ private:
 	std::string bookAuthor;
 	std::string bookGenre;
 	unsigned short bookNumberOfPages;
-	unsigned short bookAge;
+	unsigned short bookYearOfRelease;
 public:
-	Book(std::string bookName, std::string bookAuthor, std::string bookGenre, unsigned short bookNumberOfPages, unsigned short bookAge);
+	Book(std::string bookName, std::string bookAuthor, std::string bookGenre, unsigned short bookNumberOfPages, unsigned short bookYearOfRelease);
 	~Book() = default;
 	std::string getBookInfo();
 	
