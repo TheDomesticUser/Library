@@ -1,9 +1,9 @@
 #include "book.h"
 #include <sstream>
 
-unsigned short Book::bookID = 0;
+size_t Book::bookID = 0;
 
-Book::Book(std::string bookName, std::string bookAuthor, std::string bookGenre, unsigned short bookNumberOfPages, unsigned short bookYearOfRelease)
+Book::Book(std::string bookName, std::string bookAuthor, std::string bookGenre, size_t bookNumberOfPages, size_t bookYearOfRelease)
 {
 	this->bookName = bookName;
 	this->bookAuthor = bookAuthor;
@@ -11,11 +11,3 @@ Book::Book(std::string bookName, std::string bookAuthor, std::string bookGenre, 
 	this->bookNumberOfPages = bookNumberOfPages;
 	this->bookYearOfRelease = bookYearOfRelease;
 }
-
-std::string Book::getBookInfo()
-{
-	std::stringstream bookInfo;
-	bookInfo << bookName << " information:\nAuthor: " << bookAuthor << "\nGenre: " << bookGenre <<
-		"\nNumber of pages: " << bookNumberOfPages << "\nAge: " << bookYearOfRelease;
-	return bookInfo.str();
-} 

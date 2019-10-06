@@ -390,3 +390,8 @@ MigrationBackup/
 *.user
 *.lastbuildstate
 *.CL.write.1.tlog
+Debug/*
+*.tlog
+*.tlog
+*.tlog
+*.vcxproj

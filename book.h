@@ -1,23 +1,20 @@
-#ifndef BOOK_H
-#define BOOK_H
+#pragma once
+
 #include <iostream>
 #include <string>
 
 class Book
 {
 private:
-	static unsigned short bookID;
+	static size_t bookID;
 	std::string bookName;
 	std::string bookAuthor;
 	std::string bookGenre;
-	unsigned short bookNumberOfPages;
-	unsigned short bookYearOfRelease;
+	size_t bookNumberOfPages;
+	size_t bookYearOfRelease;
 public:
-	Book(std::string bookName, std::string bookAuthor, std::string bookGenre, unsigned short bookNumberOfPages, unsigned short bookYearOfRelease);
+	Book(std::string bookName, std::string bookAuthor, std::string bookGenre, size_t bookNumberOfPages, size_t bookYearOfRelease);
 	~Book() = default;
-	std::string getBookInfo();
 	
 	friend class Borrower;
 };
-
-#endif BOOK_H

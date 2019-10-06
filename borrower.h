@@ -1,5 +1,5 @@
-#ifndef BORROWER_H
-#define BORROWER_H
+#pragma once
+
 #include "book.h"
 #include <iostream>
 #include <string>
@@ -7,21 +7,23 @@
 
 class Borrower
 {
-private:
+protected:
 	std::vector<Book> booksOwned;
-	static unsigned short borrowerID;
+	static size_t borrowerID;
 	std::string borrowerName;
-	short borrowerAge;
+	size_t borrowerAge;
 public:
-	Borrower(std::string borrowerName, short borrowerAge);
+	Borrower(std::string borrowerName, size_t borrowerAge);
 	~Borrower() = default;
 	std::string getBorrowerName() { return borrowerName; };
-	short getBorrowerAge() { return borrowerAge; };
-	friend std::ostream &operator<<(std::ostream, const Borrower &);
+	size_t getBorrowerAge() { return borrowerAge; };
 
 	void printBorrowedBooks();
 	void borrowBook(const Book &book);
 	void returnBook(const Book &book);
-};
 
-#endif
+	friend class LibraryCard;
+
+	Borrower(const Borrower&) = delete;
+	Borrower operator=(const Borrower&) = delete;
+};

@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 
-Library::Library(std::string libraryName, std::string libraryAddress, std::string libraryPhoneNumber, unsigned short libraryAge, unsigned short maxAmountOfBooks)
+Library::Library(std::string libraryName, std::string libraryAddress, std::string libraryPhoneNumber, size_t libraryAge, size_t maxAmountOfBooks)
 {
 	this->libraryName = libraryName;
 	this->libraryAddress = libraryAddress;
@@ -20,13 +20,4 @@ void Library::addBook(const Book book)
 	} else {
 		libraryBooks.push_back(book);
 	}
-}
-
-// Overload the << operator for Library class, printing out all the information inside
-std::ostream &operator<<(std::ostream &out, const Library &library)
-{
-	out << "The name is " << library.libraryName << "\nThe address is " << library.libraryAddress <<
-		"\nThe phone number is " << library.libraryPhoneNumber << "\nThe age is " << library.libraryAge <<
-		"The max number of books it can hold is " << library.maxAmountOfBooks;
-	return out;
 }

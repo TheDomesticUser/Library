@@ -1,18 +1,10 @@
 #include "borrower.h"
 #include "book.h"
-#include <iostream>
-#include <string>
+#include <algorithm>
 
-unsigned short Borrower::borrowerID = 0;
+size_t Borrower::borrowerID = 0;
 
-// Overloading the left bit shift operator for outputting the borrower information
-std::ostream &operator<<(std::ostream out, const Borrower &borrower)
-{
-	out << "Borrower name: " << borrower.borrowerName << "\nBorrower age: " << borrower.borrowerAge;
-	return out;
-}
-
-Borrower::Borrower(std::string borrowerName, short borrowerAge)
+Borrower::Borrower(std::string borrowerName, size_t borrowerAge)
 {
 	this->borrowerName = borrowerName;
 	this->borrowerAge = borrowerAge;
@@ -36,7 +28,6 @@ void Borrower::borrowBook(const Book &book)
 {
 	if (booksOwned.size() > 5) {
 		std::cout << "A borrower cannot sign out more than 5 books at a time!" << std::endl;
-		return;
 	} else {
 		booksOwned.push_back(book);
 	}
@@ -44,13 +35,5 @@ void Borrower::borrowBook(const Book &book)
 
 void Borrower::returnBook(const Book &book)
 {
-	// Find the index of the book argument in the books owned vector
-	for (short bookIter = 0; bookIter < booksOwned.size(); bookIter++) {
-		if (booksOwned[bookIter].bookID == book.bookID) {
-			booksOwned.erase(booksOwned.begin() + bookIter);
-			return;
-		}
-	}
-
-	std::cerr << "The borrower has never borrowed " << book.bookName << ". You cannot return it!" << '\n';
+	
 }
